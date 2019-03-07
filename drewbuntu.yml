@@ -38,3 +38,8 @@
         - docker-ce
         - code
 
+    - name: add executing user to docker group
+      user:
+        name: "{{ ansible_env.SUDO_USER }}"
+        group: "docker"
+        append: true
