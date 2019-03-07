@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   become: true
+  vars:
+    tf_version: 0.12.0-beta1
   tasks:
     - name: install packages
       apt:
@@ -43,3 +45,14 @@
         name: "{{ ansible_env.SUDO_USER }}"
         group: "docker"
         append: true
+
+    - name: "install terraform ver: {{ tf_version }}"
+      unarchive:
+        src: "https://releases.hashicorp.com/terraform/0.12.0-beta1/terraform_{{ tf_version }}_linux_amd64.zip"
+        dest: /usr/local/bin
+        owner: root
+        group: root
+        mode: 0777
+        remote_src: true
+
+      
