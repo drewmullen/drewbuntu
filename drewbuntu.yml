@@ -48,7 +48,7 @@
 
     - name: "install terraform ver: {{ tf_version }}"
       unarchive:
-        src: "https://releases.hashicorp.com/terraform/0.12.0-beta1/terraform_{{ tf_version }}_linux_amd64.zip"
+        src: "https://releases.hashicorp.com/terraform/{{ tf_version }}/terraform_{{ tf_version }}_linux_amd64.zip"
         dest: /usr/local/bin
         owner: root
         group: root
