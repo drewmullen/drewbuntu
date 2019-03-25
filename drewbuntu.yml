@@ -78,3 +78,16 @@
       pip: >
         name=awscli
         state=latest
+
+    - name: download slack
+      get_url:
+        url: https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.8-amd64.deb
+        dest: /tmp
+        owner: root
+        group: root
+        mode: 0777
+
+    - name: install slack
+      apt: 
+        deb: /tmp/slack-desktop-3.3.8-amd64.deb
+      become: true
