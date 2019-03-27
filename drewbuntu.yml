@@ -34,6 +34,7 @@
       with_items:
         - deb [arch=amd64] https://download.docker.com/linux/debian {{ansible_distribution_release}} stable
         - deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        - deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ansible_distribution_release}} main
 
     - name: install special packages
       apt:
@@ -42,6 +43,7 @@
       with_items:
         - docker-ce
         - code
+        - azure-cli
 
     - name: add executing user to docker group
       user:
